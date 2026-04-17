@@ -151,8 +151,8 @@ app.get('/api/orders', (req, res) => {
 
 // Mock Database for Reviews
 let reviews = [
-  { id: 1, name: 'Abhijeet', review: 'Fantastic quality! The sherwani fits perfectly.', image: '/abhijeet1.jpeg', rating: 5, approved: true },
-  { id: 2, name: 'Rohan', review: 'Great collection of western wear. Customer service is excellent.', image: '/rohan1.jpeg', rating: 5, approved: true },
+  { id: 1, name: 'Abhijeet', review: 'Fantastic quality! The sherwani fits perfectly.', rating: 5, approved: true },
+  { id: 2, name: 'Rohan', review: 'Great collection of western wear. Customer service is excellent.', rating: 5, approved: true },
   { id: 3, name: 'Yogesh Sapate', review: 'Amazing quality and fast delivery. The ethnic collection is top-notch!', rating: 5, approved: true },
   { id: 4, name: 'Aditya Jagtap', review: 'Best place in Islampur for premium western wear. Highly recommended!', rating: 5, approved: true },
   { id: 5, name: 'Shubham Shewalkar', review: 'The fabric quality is exceptional. Balaji Collection never disappoints.', rating: 5, approved: true }
