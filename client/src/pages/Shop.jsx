@@ -17,7 +17,7 @@ const Shop = ({ addToCart }) => {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/products');
+      const res = await axios.get('https://balaji-collection.onrender.com/api/products');
       setProducts(res.data.filter(p => p.stock)); 
       setLoading(false);
     } catch (e) {

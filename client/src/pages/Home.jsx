@@ -17,7 +17,7 @@ const Home = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-          const res = await axios.get('http://localhost:5000/api/reviews');
+          const res = await axios.get('https://balaji-collection.onrender.com/api/reviews');
           setReviews(res.data);
       } catch (e) { console.error(e); }
     };
@@ -27,7 +27,7 @@ const Home = () => {
   const handleReviewSubmit = async (e) => {
       e.preventDefault();
       try {
-          await axios.post('http://localhost:5000/api/reviews', newReview);
+          await axios.post('https://balaji-collection.onrender.com/api/reviews', newReview);
           alert('Review submitted! It will appear after admin approval.');
           setNewReview({ name: '', review: '', rating: 5, image: '' });
       } catch (e) { alert('Error submitting review'); }

@@ -38,7 +38,7 @@ const Checkout = ({ cart, clearCart }) => {
 
     try {
       // Send data to backend
-      const response = await axios.post('http://localhost:5000/api/orders', {
+      const response = await axios.post('https://balaji-collection.onrender.com/api/orders', {
         ...formData,
         items: cart,
         total: total,

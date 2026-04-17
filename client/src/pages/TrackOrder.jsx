@@ -14,7 +14,7 @@ const TrackOrder = () => {
         setLoading(true);
         setError(null);
         try {
-            const res = await axios.get(`http://localhost:5000/api/orders/${orderId}`);
+            const res = await axios.get(`https://balaji-collection.onrender.com/api/orders/${orderId}`);
             setOrderData(res.data);
             setLoading(false);
         } catch (e) {

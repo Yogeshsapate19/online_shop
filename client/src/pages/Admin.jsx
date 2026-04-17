@@ -19,7 +19,7 @@ const Admin = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-        const res = await axios.post('http://localhost:5000/api/login', loginForm);
+        const res = await axios.post('https://balaji-collection.onrender.com/api/login', loginForm);
         if (res.data.success) {
             setIsAdmin(true);
             fetchData();
@@ -36,9 +36,9 @@ const Admin = () => {
   const fetchData = async () => {
     try {
       const [orderRes, productRes, reviewRes] = await Promise.all([
-        axios.get('http://localhost:5000/api/orders'),
-        axios.get('http://localhost:5000/api/products'),
-        axios.get('http://localhost:5000/api/reviews/admin')
+        axios.get('https://balaji-collection.onrender.com/api/orders'),
+        axios.get('https://balaji-collection.onrender.com/api/products'),
+        axios.get('https://balaji-collection.onrender.com/api/reviews/admin')
       ]);
       setOrders(orderRes.data);
       setProducts(productRes.data);
@@ -52,7 +52,7 @@ const Admin = () => {
 
   const approveReview = async (id) => {
       try {
-          await axios.put(`http://localhost:5000/api/reviews/${id}/approve`);
+          await axios.put(`https://balaji-collection.onrender.com/api/reviews/${id}/approve`);
           fetchData();
       } catch (e) { alert('Error approving review'); }
   };
@@ -60,7 +60,7 @@ const Admin = () => {
   const deleteReview = async (id) => {
       if (window.confirm('Delete this review?')) {
         try {
-            await axios.delete(`http://localhost:5000/api/reviews/${id}`);
+            await axios.delete(`https://balaji-collection.onrender.com/api/reviews/${id}`);
             fetchData();
         } catch (e) { alert('Error deleting review'); }
       }
@@ -69,7 +69,7 @@ const Admin = () => {
   const handleAddProduct = async (e) => {
     e.preventDefault();
     try {
-        await axios.post('http://localhost:5000/api/products', newProduct);
+        await axios.post('https://balaji-collection.onrender.com/api/products', newProduct);
         setNewProduct({ name: '', price: '', category: 'Ethnic', img: '/saree.png' });
         fetchData();
     } catch (e) { alert('Error adding product'); }
@@ -78,7 +78,7 @@ const Admin = () => {
   const handleDeleteProduct = async (id) => {
     if (window.confirm('Are you sure you want to remove this item?')) {
         try {
-            await axios.delete(`http://localhost:5000/api/products/${id}`);
+            await axios.delete(`https://balaji-collection.onrender.com/api/products/${id}`);
             fetchData();
         } catch (e) { alert('Error deleting product'); }
     }
@@ -86,21 +86,21 @@ const Admin = () => {
 
   const toggleStock = async (product) => {
     try {
-        await axios.put(`http://localhost:5000/api/products/${product.id}`, { stock: !product.stock });
+        await axios.put(`https://balaji-collection.onrender.com/api/products/${product.id}`, { stock: !product.stock });
         fetchData();
     } catch (e) { alert('Error updating stock'); }
   };
 
   const changePrice = async (id, newPrice) => {
       try {
-          await axios.put(`http://localhost:5000/api/products/${id}`, { price: Number(newPrice) });
+          await axios.put(`https://balaji-collection.onrender.com/api/products/${id}`, { price: Number(newPrice) });
           fetchData();
       } catch (e) { alert('Error updating price'); }
   };
 
   const updateOrderStatus = async (id, status) => {
       try {
-          await axios.put(`http://localhost:5000/api/orders/${id}/status`, { status });
+          await axios.put(`https://balaji-collection.onrender.com/api/orders/${id}/status`, { status });
           fetchData();
       } catch (e) { alert('Error updating status'); }
   };
